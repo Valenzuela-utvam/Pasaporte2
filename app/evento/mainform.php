@@ -10,7 +10,8 @@
 <div class="form-floating mb-3">
     <input type="datetime-local" required class="form-control" id="fecha_hora" name="fecha_hora"
         placeholder="Fecha y hora"
-        value="<?php if(isset($object)) { echo htmlspecialchars($object->fecha_hora ?? ''); } ?>" />
+        value="<?php if (isset($object->fecha_hora) && !empty($object->fecha_hora)) {
+                    echo htmlspecialchars(date('Y-m-d\TH:i', strtotime($object->fecha_hora)));}?>" />
     <label for="fecha_hora">Fecha y hora</label>
 </div>
 

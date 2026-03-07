@@ -26,26 +26,26 @@ $data = $object->getAll();
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($data as $permiso) : ?>
+        <?php foreach ($data as $eventos) : ?>
             <tr>
-                <td><?= htmlspecialchars($permiso['nombre']) ?></td>
-                <td><?= htmlspecialchars($permiso['fecha_hora']) ?></td>
-                <td><?= htmlspecialchars($permiso['lugar']) ?></td>
-                <td><?= htmlspecialchars($permiso['responsable_interno']) ?></td>
-                <td><?= htmlspecialchars($permiso['responsable_externo']) ?></td>
-                <td><?= htmlspecialchars($permiso['costo_interno']) ?></td>
-                <td><?= htmlspecialchars($permiso['costo_externo']) ?></td>
-                <td><?= htmlspecialchars($permiso['requiere_registro']) ?></td>
+                <td><?= htmlspecialchars($eventos['nombre']) ?></td>
+                <td><?= htmlspecialchars($eventos['fecha_hora']) ?></td>
+                <td><?= htmlspecialchars($eventos['lugar']) ?></td>
+                <td><?= htmlspecialchars($eventos['responsable_interno']) ?></td>
+                <td><?= htmlspecialchars($eventos['responsable_externo']) ?></td>
+                <td><?= htmlspecialchars($eventos['costo_interno']) ?></td>
+                <td><?= htmlspecialchars($eventos['costo_externo']) ?></td>
+                <td><?= htmlspecialchars($eventos['requiere_registro']) ?></td>
                 <td class="text-center">
-                    <a class="btn btn-outline-secondary" href="eventos.php?accion=mostrar&pk=<?= urlencode($permiso['id']) ?>">
+                    <a class="btn btn-outline-secondary" href="eventos.php?accion=mostrar&pk=<?= urlencode($eventos['id']) ?>">
                         <i class="fa-regular fa-eye"></i>
                         Mostrar
                     </a>
-                    <a class="btn btn-outline-secondary" href="eventos.php?accion=actualizar&pk=<?= urlencode($permiso['id']) ?>">
+                    <a class="btn btn-outline-secondary" href="eventos.php?accion=actualizar&pk=<?= urlencode($eventos['id']) ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
                         Actualizar
                     </a>
-                    <a class="btn btn-outline-danger" href="eventos.php?accion=eliminar&pk=<?= urlencode($permiso['id']) ?>" onclick="return confirm('¿Eliminar este permiso?')">
+                    <a class="btn btn-outline-danger" href="eventos.php?accion=eliminar&pk=<?= urlencode($eventos['id']) ?>" onclick="return confirm('¿Eliminar este evento?')">
                         <i class="fa-regular fa-trash-can"></i>
                         Eliminar
                     </a>
