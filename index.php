@@ -23,12 +23,13 @@ if(getvar("accion") === "login") {
     <?php include 'templates/header.php'; ?>
 
     <main class="container flex-grow-1 d-flex flex-column">
-        <h1 class="mb-4">Pasaporte TICs 2026</h1>
+
+        <h1 class="mb-4"><span class="colores-gay big-text">Bienvenido <?php echo $_SESSION["current_user"] ?? "Lobo"; ?>!!</span></h1>
 
         <?php if(!(isset($_SESSION["current_user"]) && $_SESSION["current_user"])): ?>
 
             <div class="flex-grow-1 d-flex justify-content-center align-items-center">
-                <form class="p-4 border rounded shadow" id="main-form" method="post" autocomplete="off">
+                <form class="p-4 rounded shadow custom-border" id="main-form" method="post" autocomplete="off">
                     <h2 class="text-center mb-4">Acceso</h2>
                     <?php if(isset($err) && $err):?>
                         <div class="alert alert-danger" role="alert"><?php echo $err; ?></div>

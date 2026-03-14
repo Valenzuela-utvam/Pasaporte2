@@ -4,7 +4,7 @@ $data = $object->getAll();
 
 <div class="clearfix mb-3">
 <div class="btn-group float-end" role="group" aria-label="Barra de Herramientas">
-    <a type="button" class="btn btn-outline-secondary" href="usuarios.php?accion=crear">
+    <a type="button" class="btn btn-outline-primary" href="usuarios.php?accion=crear">
         <i class="fa-solid fa-plus"></i>
         Nuevo
     </a>
