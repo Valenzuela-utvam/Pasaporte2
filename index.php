@@ -46,6 +46,17 @@ if(getvar("accion") === "login") {
 
             <div class="row gy-3" id="modulos-de-sistema">
 
+            <?php if ($_SESSION["current_user"]->can("lector_qr.*")): ?>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="d-grid gap-2">
+                    <a href="lector_qr.php" class="btn btn-outline-secondary">
+                        <i class="fa-solid fa-qrcode"></i>
+                        Lector QR
+                    </a>
+                    </div>
+                </div>
+            <?php endif; ?>
+
             <?php if ($_SESSION["current_user"]->can("evento.*")): ?>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="d-grid gap-2">
@@ -104,6 +115,7 @@ if(getvar("accion") === "login") {
                 </div>
             <?php endif; ?>
             </div>
+
             <div class="mt-4 d-flex flex-column justify-content-center align-items-center flex-grow-1">
                 <div class="card shadow-sm" style="max-width: 400px; width: 100%;">
                     <div class="card-body text-center p-4">
@@ -118,6 +130,7 @@ if(getvar("accion") === "login") {
                     </div>
                 </div>
             </div>
+            
             <script src="assets/js/qr_generator.js"></script>
         <?php endif; ?>
 
