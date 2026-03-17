@@ -24,7 +24,7 @@ $data = $object->getAll();
             <th>Costo interno</th>
             <th>Costo externo</th>
             <th>Registro</th>
-
+            <th></th>
         </tr>
     </thead>
     <tbody>
