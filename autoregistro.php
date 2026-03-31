@@ -20,6 +20,7 @@ if (!isset($_SESSION['current_user']) || !$_SESSION['current_user']) {
 } else {
     $userId = $_SESSION['current_user']->id;
     $eventoId = getvar('evento_id');
+    $eventosRegistrados = []; // Array de IDs de eventos en los que el usuario ya está registrado
 
     if ($eventoId !== null) {
         $tblRegistro = new Table('registro');
@@ -48,8 +49,17 @@ if (!isset($_SESSION['current_user']) || !$_SESSION['current_user']) {
 
     try {
         $tblEvento = new Table('evento');
+        $tblRegistro = new Table('registro');
         $now = date('Y-m-d H:i:s');
         $eventos = $tblEvento->selectAll('fecha_hora >= ? ORDER BY fecha_hora ASC', [$now]);
+        
+        // Obtener los IDs de eventos en los que el usuario ya está registrado
+        $registrosUsuario = $tblRegistro->selectAll('usuario_id = ?', [$userId]);
+        if ($registrosUsuario !== null) {
+            foreach ($registrosUsuario as $registro) {
+                $eventosRegistrados[] = $registro['evento_id'];
+            }
+        }
     } catch (Exception $e) {
         $errors[] = 'Error al obtener eventos: ' . $e->getMessage();
     }

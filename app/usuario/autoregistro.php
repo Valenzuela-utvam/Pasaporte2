@@ -20,13 +20,20 @@
                     <td><?php echo htmlspecialchars($ev['fecha_hora']); ?></td>
                     <td><?php echo htmlspecialchars($ev['lugar']); ?></td>
                     <td>
-                        <form method="post" style="margin:0;display:inline;">
-                            <input type="hidden" name="evento_id" value="<?php echo htmlspecialchars($ev['id']); ?>">
-                            <button title="Registrarme" type="submit" class="btn btn-primary btn-sm">
-                                <i class="fa-solid fa-right-to-bracket"></i>
-                                Registrarme
-                            </button>
-                        </form>
+                        <?php if (in_array($ev['id'], $eventosRegistrados)): ?>
+                            <span class="badge bg-success">
+                                <i class="fa-solid fa-check"></i>
+                                Registrado
+                            </span>
+                        <?php else: ?>
+                            <form method="post" style="margin:0;display:inline;">
+                                <input type="hidden" name="evento_id" value="<?php echo htmlspecialchars($ev['id']); ?>">
+                                <button title="Registrarme" type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa-solid fa-right-to-bracket"></i>
+                                    Registrarme
+                                </button>
+                            </form>
+                        <?php endif; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
